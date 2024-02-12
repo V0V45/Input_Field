@@ -188,7 +188,8 @@ body {
 }
 
 .popup__login,
-.popup__password {
+.popup__password,
+.popup__isLoginSaved {
     color: var(--successColor);
     font-size: 40px;
 }

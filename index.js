@@ -78,7 +78,8 @@ function loadLogin() { // загрузка данных о состоянии ч
 
 function enter(event) { // логика отправки формы
     const loginShowcase = document.getElementsByClassName('popup__login')[0]; // поле логина
-    const passwordShowcase = document.getElementsByClassName('popup__password')[0]; // поле пароля
+    const passwordShowcase = document.getElementsByClassName('popup__password')[0]; // поле пароля - ТОЛЬКО ДЛЯ ПОКАЗА В ПРОЕКТЕ
+    const isLoginSavedShowcase = document.getElementsByClassName('popup__isLoginSaved')[0]; // поле сохраненного логина
     event.preventDefault(); // удаляем первоначальный action на отправку формы (чтобы страница не обновлялась)
     for (let index = 0; index < document.body.children.length; index++) { // перебираем все тэги внутри body
         // если это <script> или <div id="popup"> то пропускаем шаг
@@ -92,6 +93,12 @@ function enter(event) { // логика отправки формы
     popup.classList.add('popup-active'); // и там же добавляем класс popupActive
     loginShowcase.textContent = loginInput.value; // передаем данные о логине
     passwordShowcase.textContent = passwordInput.value; // передаем данные о пароле - ТОЛЬКО ДЛЯ ПОКАЗА В ПРОЕКТЕ
+    isLoginSaved = Boolean(localStorage.getItem('isLoginSaved')); // достаем данные о том, сохранен ли логин
+    if (isLoginSaved === true) { // если сохранен
+        isLoginSavedShowcase.textContent = 'Логин сохранен';
+    } else {
+        isLoginSavedShowcase.textContent = 'Логин не сохранен';
+    }
 }
 
 // ХОД СКРИПТА - НАЧАЛЬНЫЕ ЗНАЧЕНИЯ
