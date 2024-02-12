@@ -1,8 +1,10 @@
 // ПЕРЕМЕННЫЕ
-const enterButton = document.getElementById('submitButton'); // кнопка Войти
+const form = document.getElementsByClassName('login')[0]; // форма логина и пароля
+const popup = document.getElementById('popup'); // выпадающее окно
 const rememberButton = document.getElementById('rememberButton'); // кнопка Запомнить
 const checkboxImage = document.getElementById('rememberButtonImage'); // картинка кнопки Запомнить
 const loginInput = document.getElementById('login__input'); // поле логина
+const passwordInput = document.getElementById('password__input'); // поле пароля - ТОЛЬКО ДЛЯ ПОКАЗА В ПРОЕКТЕ
 let isLoginSaved; // сохранен ли логин?
 
 // ФУНКЦИИ
@@ -74,5 +76,24 @@ function loadLogin() { // загрузка данных о состоянии ч
     }
 }
 
+function enter(event) { // логика отправки формы
+    const loginShowcase = document.getElementsByClassName('popup__login')[0]; // поле логина
+    const passwordShowcase = document.getElementsByClassName('popup__password')[0]; // поле пароля
+    event.preventDefault(); // удаляем первоначальный action на отправку формы (чтобы страница не обновлялась)
+    for (let index = 0; index < document.body.children.length; index++) { // перебираем все тэги внутри body
+        // если это <script> или <div id="popup"> то пропускаем шаг
+        if (document.body.children[index].tagName === 'SCRIPT' || document.body.children[index].id === 'popup') {
+            continue;
+        } else { // все остальные элементы убираем
+            document.body.children[index].style.display = 'none';
+        }
+    }
+    popup.classList.remove('popup-unactive'); // в <div id="popup"> убираем класс popupUnactive
+    popup.classList.add('popup-active'); // и там же добавляем класс popupActive
+    loginShowcase.textContent = loginInput.value; // передаем данные о логине
+    passwordShowcase.textContent = passwordInput.value; // передаем данные о пароле - ТОЛЬКО ДЛЯ ПОКАЗА В ПРОЕКТЕ
+}
+
 // ХОД СКРИПТА - НАЧАЛЬНЫЕ ЗНАЧЕНИЯ
 loadLogin(); // загружаем данные о чекбоксе
+form.onsubmit = enter; // назначем на отправление в форме логина и пароля логику

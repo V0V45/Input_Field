@@ -149,6 +149,51 @@ body {
     box-shadow: 0 0 16px var(--accentColor);
 }
 
+.popup-unactive {
+    display: none;
+}
+
+.popup-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        transform: translate(300%, 0%)
+    }
+    to {
+        transform: translate(0%, 0%)
+    }
+}
+
+.popup__header,
+.popup__caption {
+    font-family: 'Philosopher', sans-serif;
+    font-weight: normal;
+}
+
+.popup__header {
+    color: var(--accentColor);
+    font-size: 64px;
+}
+
+.popup__caption {
+    color: var(--mistakeColor);
+    font-size: 24px;
+}
+
+.popup__login,
+.popup__password {
+    color: var(--successColor);
+    font-size: 40px;
+}
+
+
 @media only screen and (min-width: 540px) {
     .login {
         margin: 0 24px 0 24px;
