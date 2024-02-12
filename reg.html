@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="reg.css" />
+</head>
+<body>
+    <form method="post" action="/registration">
+        <label>
+            <span>Введите Ваш e-mail:</span>
+            <input
+                required
+                type="email"
+                name="email"
+                placeholder="Введите e-mail"
+        />
+        </label>
+        <label>
+            <span>Введите Ваше имя:</span>
+            <input
+                required
+                type="text"
+                name="username"
+                placeholder="Введите имя"
+                minlength="2"
+        />
+        </label>
+        <label>
+            <span>Введите Ваш пароль:</span>
+            <input
+                required
+                type="password"
+                name="password"
+                placeholder="Введите пароль"
+                minlength="8"
+        />
+        </label>
+        <label>
+            <span>Введите Ваш пароль еще раз:</span>
+            <input
+                required
+                type="password"
+                name="password"
+                placeholder="Введите пароль повторно"
+                minlength="8"
+        />
+        </label>
+        <label>
+            <span>Выберите Ваш язык:</span>
+            <select name="languageChoose">
+                <option selected>Русский</option>
+                <option>English</option>
+                <option>中国人</option>
+            </select>
+        </label>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <div class="loginPrompt">
+        <span>Уже есть аккаунт?</span>
+        <a href="index.html">Войти</a>
+    </div>
+</body>
+</html>

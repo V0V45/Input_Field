@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="https://static.tildacdn.com/tild6463-6639-4636-a131-323534663232/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <form method="post" class="login">
+        <label for="login__input" type="email" class="login__label">Введите логин (e-mail):</label>
+            <input
+                id="login__input"
+                class="login__input"
+                required
+                type="email"
+                name="login"
+                placeholder="Введите e-mail"
+        />
+        <label for="password__input" type="password" class="password__label">Введите пароль:</label>
+            <input
+                id="password__input"
+                class="password__input"
+                required
+                type="password"
+                name="password"
+                placeholder="Введите пароль"
+                minlength="8"
+        />
+        <button class="submitButton" id="submitButton">Войти</button>
+    </form>
+    <div class="rememberPrompt">
+        <button class="rememberPrompt__button" id="rememberButton" name="rememberButton">
+            <img class="rememberPrompt__button__image" id="rememberButtonImage" src="images/checkbox-empty.png" />
+        </button>
+        <label for="rememberButton" class="rememberPrompt__label">Сохранить логин</label>
+    </div>
+    <div class="registrationPrompt">
+        <span class="registrationPrompt__text">Еще не зарегистрированы?</span>
+        <a href="reg.html" class="registrationPrompt__link">Зарегистрироваться</a>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

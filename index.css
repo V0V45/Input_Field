@@ -1,0 +1,233 @@
+:root {
+    --accentColor: rgb(255, 69, 0);
+    --backgroundColor: rgb(0, 0, 45);
+    --mistakeColor: #550000;
+    --successColor: rgb(0, 255, 0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Philosopher';
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-display: swap;
+    src: url(./fonts/Philosopher-Regular.ttf), format('truetype');
+}
+
+body {
+    font-family: sans-serif;
+    background: var(--backgroundColor);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.login {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0 8px 0 8px;
+}
+
+.login__label,
+.password__label {
+    color: var(--accentColor);
+    font-family: 'Philosopher';
+    padding-bottom: 8px;
+}
+
+.login__input,
+.password__input {
+    background: var(--backgroundColor);
+    border: 1px solid var(--accentColor);
+    border-radius: 8px;
+    font-size: 20px;
+    transition: border 0.3s, box-shadow 0.3s, color 0.3s;
+    margin-bottom: 24px;
+}
+
+.login__input:focus,
+.password__input:focus {
+    border: 1px solid var(--accentColor);
+    outline: none;
+    box-shadow: 0px 0px 12px var(--accentColor);
+    color: var(--accentColor);
+}
+
+.login__input:invalid:not(:placeholder-shown),
+.password__input:invalid:not(:placeholder-shown) {
+    border: 1px solid var(--mistakeColor);
+    outline: none;
+    box-shadow: 0px 0px 12px var(--mistakeColor);
+    color: var(--mistakeColor);
+}
+
+.login__input:valid:not(:placeholder-shown),
+.password__input:valid:not(:placeholder-shown) {
+    border: 1px solid var(--successColor);
+    outline: none;
+    box-shadow: 0px 0px 12px var(--successColor);
+    color: var(--successColor);
+}
+
+::placeholder {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: lighter;
+}
+
+.submitButton {
+    background-color: var(--accentColor);
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 24px;
+    transition: background 0.3s;
+    margin: 40px 0 80px 0;
+}
+
+.submitButton:hover {
+    background: var(--successColor);
+}
+
+.registrationPrompt {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationPrompt__text {
+    color: white;
+    font-size: 16px;
+}
+
+.registrationPrompt__link {
+    font-size: 16px;
+    color: blue;
+    padding-left: 4px;
+}
+
+.rememberPrompt {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.rememberPrompt__label {
+    color: white;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.rememberPrompt__button {
+    background: transparent;
+    border: 0px solid transparent;
+    border-radius: 4px;
+}
+
+.rememberPrompt__button__image {
+    box-shadow: none;
+    border-radius: 4px;
+    transition: 0.2s box-shadow;
+}
+
+.rememberPrompt__button__image:hover {
+    box-shadow: 0 0 16px var(--accentColor);
+}
+
+@media only screen and (min-width: 540px) {
+    .login {
+        margin: 0 24px 0 24px;
+        font-size: 40px;
+    }
+
+    .login__input,
+    .password__input {
+        font-size: 36px;
+    }
+
+    .submitButton {
+        font-size: 40px;
+    }
+
+    .rememberPrompt {
+        padding-bottom: 8px;
+    }
+
+    .registrationPrompt__link {
+        padding-left: 4px;
+    }
+
+    .registrationPrompt__link,
+    .registrationPrompt__text,
+    .rememberPrompt__label {
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .login {
+        font-size: 50px;
+        margin: 0 100px 0 100px;
+        display: grid;
+        grid-template-areas: 
+         "login__label button"
+         "login__input button"
+         "password__label button"
+         "password__input button";
+         justify-content: center;
+         align-items: stretch;
+
+    }
+    .login__label {
+        grid-area: login__label;
+    }
+    .login__input {
+        grid-area: login__input;
+    }
+    .password__label {
+        grid-area: password__label;
+    }
+    .password__input {
+        grid-area: password__input;
+    }
+    .submitButton {
+        grid-area: button;
+        margin: 24px;
+        padding: 24px;
+    }
+
+    .login__input,
+    .password__input {
+        font-size: 35px;
+        margin-bottom: 24px;
+    }
+
+    .registrationPrompt,
+    .rememberPrompt {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .registrationPrompt__text,
+    .registrationPrompt__link,
+    .rememberPrompt__label {
+        font-size: 24px;
+        padding: 4px;
+    }
+}
