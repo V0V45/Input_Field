@@ -2,23 +2,27 @@
 <html>
 <head>
     <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="reg.css" />
+    <link rel="shortcut icon" href="https://static.tildacdn.com/tild6463-6639-4636-a131-323534663232/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <form method="post" action="/registration">
-        <label>
-            <span>Введите Ваш e-mail:</span>
+    <form class="registrationForm" method="post" action="/registration">
+        <label class="registrationForm__emailLabel">
+            <span class="registrationForm__emailLabel__text">Введите Ваш e-mail:</span>
             <input
+                class="registrationForm__emailLabel__inputField"
                 required
                 type="email"
                 name="email"
                 placeholder="Введите e-mail"
         />
         </label>
-        <label>
-            <span>Введите Ваше имя:</span>
+        <label class="registrationForm__nameLabel">
+            <span class="registrationForm__nameLabel__text">Введите Ваше имя:</span>
             <input
+                class="registrationForm__nameLabel__inputField"
                 required
                 type="text"
                 name="username"
@@ -26,9 +30,10 @@
                 minlength="2"
         />
         </label>
-        <label>
-            <span>Введите Ваш пароль:</span>
+        <label class="registrationForm__passwordLabel">
+            <span class="registrationForm__passwordLabel__text">Введите Ваш пароль:</span>
             <input
+                class="registrationForm__passwordLabel__inputField"
                 required
                 type="password"
                 name="password"
@@ -36,9 +41,10 @@
                 minlength="8"
         />
         </label>
-        <label>
-            <span>Введите Ваш пароль еще раз:</span>
+        <label class="registrationForm__passwordCheckLabel">
+            <span class="registrationForm__passwordCheckLabel__text">Введите Ваш пароль еще раз:</span>
             <input
+                class="registrationForm__passwordCheckLabel__inputField"
                 required
                 type="password"
                 name="password"
@@ -46,19 +52,20 @@
                 minlength="8"
         />
         </label>
-        <label>
-            <span>Выберите Ваш язык:</span>
-            <select name="languageChoose">
-                <option selected>Русский</option>
-                <option>English</option>
-                <option>中国人</option>
+        <label class="registrationForm__chooseLanguageLabel">
+            <span class="registrationForm__chooseLanguageLabel__text">Выберите Ваш язык:</span>
+            <select class="registrationForm__chooseLanguageLabel__selectMenu" name="languageChoose">
+                <option class="registrationForm__chooseLanguageLabel__selectMenu__Russian" selected>Русский</option>
+                <option class="registrationForm__chooseLanguageLabel__selectMenu__English">English</option>
+                <option class="registrationForm__chooseLanguageLabel__selectMenu__Chinese">中国人</option>
             </select>
         </label>
-        <button type="submit">Зарегистрироваться</button>
+        <button class="registrationForm__signUpButton" type="submit">Зарегистрироваться</button>
     </form>
     <div class="loginPrompt">
-        <span>Уже есть аккаунт?</span>
-        <a href="index.html">Войти</a>
+        <span class="loginPrompt__text">Уже есть аккаунт?</span>
+        <a class="loginPrompt__link" href="index.html">Войти</a>
     </div>
+    <script src="reg.js"></script>
 </body>
 </html>
