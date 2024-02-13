@@ -194,6 +194,29 @@ body {
     font-size: 40px;
 }
 
+.changeLanguage {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.changeLanguage__btn {
+    background-color: var(--accentColor);
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 4px;
+    font-size: 12px;
+    transition: background 0.3s;
+    margin-right: 8px;
+}
+
+.changeLanguage__btn:hover {
+    background: var(--successColor);
+}
+
 
 @media only screen and (min-width: 540px) {
     .login {
@@ -222,6 +245,15 @@ body {
     .registrationPrompt__text,
     .rememberPrompt__label {
         font-size: 20px;
+    }
+
+    .changeLanguage {
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .changeLanguage__btn {
+        margin: 0 24px 0 24px;
     }
 
 }
@@ -275,5 +307,14 @@ body {
     .rememberPrompt__label {
         font-size: 24px;
         padding: 4px;
+    }
+
+    .changeLanguage {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .changeLanguage__btn {
+        margin: 0 24px 0 590px;
     }
 }

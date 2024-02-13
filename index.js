@@ -1,3 +1,6 @@
+// ОСНОВНАЯ ЛОГИКА РАБОТЫ WEB-ПРИЛОЖЕНИЯ
+import {loginIsSavedText, loginIsNotSavedText} from './languages/languagesLogic.js';
+
 // ПЕРЕМЕННЫЕ
 const form = document.getElementsByClassName('login')[0]; // форма логина и пароля
 const popup = document.getElementById('popup'); // выпадающее окно
@@ -95,9 +98,9 @@ function enter(event) { // логика отправки формы
     passwordShowcase.textContent = passwordInput.value; // передаем данные о пароле - ТОЛЬКО ДЛЯ ПОКАЗА В ПРОЕКТЕ
     isLoginSaved = Boolean(localStorage.getItem('isLoginSaved')); // достаем данные о том, сохранен ли логин
     if (isLoginSaved === true) { // если сохранен
-        isLoginSavedShowcase.textContent = 'Логин сохранен';
+        isLoginSavedShowcase.textContent = loginIsSavedText;
     } else {
-        isLoginSavedShowcase.textContent = 'Логин не сохранен';
+        isLoginSavedShowcase.textContent = loginIsNotSavedText;
     }
 }
 
