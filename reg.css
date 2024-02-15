@@ -4,6 +4,8 @@
     --mistakeColor: #550000;
     --successColor: rgb(0, 255, 0);
     --placeholderColor: lightslategray;
+    --buttonColor: rgb(45, 45, 45); /* изменяются в js */
+    --buttonHoverColor: rgb(45, 45, 45); /* изменяются в js*/
 }
 
 * {
@@ -64,7 +66,6 @@ input:focus {
     border: 1px solid var(--accentColor);
     outline: none;
     box-shadow: 0px 0px 12px var(--accentColor);
-    color: var(--accentColor);
 }
 
 ::placeholder {
@@ -73,14 +74,14 @@ input:focus {
     color: var(--placeholderColor);
 }
 
-input:invalid:not(:placeholder-shown) {
+.invalid {
     border: 1px solid var(--mistakeColor);
     outline: none;
     box-shadow: 0px 0px 12px var(--mistakeColor);
     color: var(--mistakeColor);
 }
 
-input:valid:not(:placeholder-shown) {
+.valid {
     border: 1px solid var(--successColor);
     outline: none;
     box-shadow: 0px 0px 12px var(--successColor);
@@ -116,7 +117,7 @@ span {
 
 button {
     width: 100%;
-    background: var(--accentColor);
+    background: var(--buttonColor);
     color: white;
     border: none;
     border-radius: 16px;
@@ -127,10 +128,34 @@ button {
 }
 
 button:hover {
-    background: var(--successColor);
+    background: var(--buttonHoverColor);
+}
+
+.checkout1, .checkout2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.checkout1 {
+    margin-top: 16px;
+}
+
+.checkoutInvalid {
+    font-size: 16px;
+    color: red;
+    text-shadow: 1px 1px 6px var(--mistakeColor);
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+.checkoutValid {
+    display: none;
 }
 
 .loginPrompt {
+    margin-top: 16px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -181,9 +206,10 @@ a {
         align-self: center;
     }
 
-    .loginPrompt {
-        font-size: 16px;
+    .checkout1, .checkout2 {
+        margin-left: 24px;
     }
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -194,11 +220,11 @@ a {
     .registrationForm {
         display: grid;
         grid-template-areas: 
-            "email ."
+            "email checkout1"
             "name button"
             "password button"
             "passwordCheck button"
-            "selector .";
+            "selector checkout2";
         justify-content: center;
         align-items: center;
     }
@@ -235,6 +261,21 @@ a {
         width: 100%;
         height: 100%;
         border-radius: 50px;
+    }
+
+    .checkout1 {
+        grid-area: checkout1;
+        margin-left: 0;
+    }
+
+    .checkout2 {
+        grid-area: checkout2;
+        margin-left: 0;
+    }
+
+    .checkoutInvalid {
+        font-size: 18px;
+        align-self: center;
     }
 
     .loginPrompt {

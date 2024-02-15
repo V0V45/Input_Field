@@ -1,4 +1,4 @@
-// ОСНОВНАЯ ЛОГИКА РАБОТЫ WEB-ПРИЛОЖЕНИЯ
+// ОСНОВНАЯ ЛОГИКА РАБОТЫ ГЛАВНОЙ СТРАНИЦЫ
 import {loginIsSavedText, loginIsNotSavedText} from './languages/languagesLogic.js';
 
 // ПЕРЕМЕННЫЕ
